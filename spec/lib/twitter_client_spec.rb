@@ -10,10 +10,10 @@ RSpec.describe TwitterClient do
       post.reload
     end
 
-    subject { -> { described_class.new(post).tweet } }
+    subject { -> { described_class.tweet(name: 'gem', version: '1') } }
 
     it do
-      expect(client).to receive(:update)
+      expect(client).to receive(:update).with("Gem update:\n Name: gem\nVersion: 1\nChangelog: ")
       subject.call
     end
   end

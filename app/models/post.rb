@@ -6,6 +6,6 @@ class Post < ApplicationRecord
   private
 
   def tweeting
-    TwitterClient.new(self).tweet
+    TwitterClient.tweet(name: gem_name, version: to_version)
   end
 end
