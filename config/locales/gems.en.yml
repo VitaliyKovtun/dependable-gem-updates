@@ -8,3 +8,6 @@ en:
       info: "Description: %{info}"
       version_downloads: "Version downloads: %{version_downloads}"
       version: "Version: %{version}"
+    show:
+      newest_version: "NEWEST VERSION: Version %{version}:"
+      current_version: "YOUR CURRENT VERSION: %{version}:"

@@ -1,0 +1,4 @@
+.gem-updates
+  h3= @gem['name'].titleize
+  h4= @gem['info']
+  br= t('.newest_version', version: @gem['version'])
