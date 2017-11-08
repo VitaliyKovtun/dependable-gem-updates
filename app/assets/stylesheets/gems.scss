@@ -1,0 +1,28 @@
+.gem-updates {
+  padding-top: 1%;
+  text-align: center;
+  .gems {
+    padding: 0;
+    list-style: none;
+    border: none;
+    border-top: 1px solid #261b7e;
+
+    .gem {
+      padding: 5px 5%;
+      border: none;
+      border-bottom: 1px solid #261b7e;
+      display: flex;
+      justify-content: space-between;
+      .gem-description {
+        max-width: 80%;
+        display: inline-block;
+        text-align: left;
+      }
+      .gem-stats {
+        max-width: 20%;
+        display: inline-block;
+        text-align: right;
+      }
+    }
+  }
+}

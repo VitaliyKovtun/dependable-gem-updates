@@ -1,0 +1,10 @@
+en:
+  gems:
+    index:
+      title: GEM UPDATES
+      search: Search
+    gem:
+      gem_name: "Gem name: %{name}"
+      info: "Description: %{info}"
+      version_downloads: "Version downloads: %{version_downloads}"
+      version: "Version: %{version}"

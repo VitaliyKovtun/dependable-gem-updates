@@ -1,0 +1,8 @@
+li.gem
+  .gem-description
+    = t('.gem_name', name: gem['name'])
+    br= t('.info', info: gem['info'])
+  .gem-stats
+    = t('.version_downloads', version_downloads: gem['version_downloads'])
+    br= t('.version', version: gem['version'])
+

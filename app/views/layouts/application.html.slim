@@ -1,0 +1,18 @@
+doctype html
+html
+  == render 'application/head'
+  body
+    == render 'application/top_nav_bar'
+    .hero.section
+      img.logo-header src="https://daks2k3a4ib2z.cloudfront.net/58e5062efeac873276a249aa/58ef99391695d8521a8fef3e_dependable-logo-large.png" /
+      .container.w-container
+        h1.heading
+          | Automatically Keep Your Gems
+          br Up-to-Date
+        .subtext
+          | Updating dependencies can be difficult - Dependable makes it easy.
+          br A quick 3-min integration with GitHub and Dependable opens a pull request to update your gems.
+          br/
+          strong It's not magic, it's Dependable.
+    == yield
+    == render 'application/footer'
