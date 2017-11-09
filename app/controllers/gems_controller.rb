@@ -4,8 +4,8 @@ class GemsController < ApplicationController
   end
 
   def show
-    @gem ||= Gems.info gem_name
-    versions ||= Gems.versions gem_name
+    @gem = Gems.info gem_name
+    versions = Gems.versions gem_name
     @gem_versions = versions.map { |version| version['number'] }
   end
 
