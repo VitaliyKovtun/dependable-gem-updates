@@ -1,7 +1,7 @@
 .gem-updates
   h3= t('.title')
   .w-form
-    = simple_form_for '', url: gems_path, method: :get, html: {class: 'form w-clearfix'} do |f|
+    = simple_form_for '', url: root_path, method: :get, html: {class: 'form w-clearfix'} do |f|
       = f.input :search, label: false, placeholder: 'search', input_html: {class: 'w-input', value: params[:search]}
       = f.submit t('.search')
   ul.gems

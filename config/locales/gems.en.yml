@@ -9,5 +9,9 @@ en:
       version_downloads: "Version downloads: %{version_downloads}"
       version: "Version: %{version}"
     show:
-      newest_version: "NEWEST VERSION: Version %{version}: %{date}"
-      current_version: "YOUR CURRENT VERSION: %{version}: %{date}"
+      newest_version: "NEWEST VERSION: %{version}, %{date}"
+      current_version: "YOUR CURRENT VERSION:"
+      gemfile: "gem '%{name}', '~> %{version}'"
+      install: "gem install %{name}"
+      clipboard: "Copy to clipboard"
+      copy: "Copy"

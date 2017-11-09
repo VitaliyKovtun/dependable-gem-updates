@@ -1,7 +1,22 @@
-.gem-updates
-  h3= @gem['name'].titleize
-  h4= @gem['info']
-  br= t('.newest_version', version: @gem['version'], date: @newest_version_date)
-  br= t('.current_version', version: @gem['version'], date: @newest_version_date)
-  br= select_tag :version, options_for_select(@gem_versions)
-  br
+.gem-section
+  h3
+    strong= gem['name'].titleize
+  h4= gem['info']
+  .gem-update-info
+    br
+      strong= t('.newest_version', version: latest_version['number'], date: latest_version['created_at'])
+    br
+      => t('.current_version')
+      = select_tag :version, options_for_select(gem_versions[1..-1].map { |v| format "%s, %s", v['number'], v['created_at'] }), class: 'version-select'
+    br
+      .instructions
+        = label_tag 'Gemfile'
+        = text_field_tag :gemfile, t('.gemfile', name: gem['name'], version: gem['version']),
+          class: 'w-input', readonly: true, onfocus: "this.select(); execCommand('copy');", onmouseup: "return false;", title: t('.clipboard')
+        button.copy-button= t('.copy')
+      .instructions
+        = label_tag 'Install'
+        = text_field_tag :install, t('.install', name: gem['name'], version: gem['version']),
+          class: 'w-input', readonly: true, onfocus: "this.select(); execCommand('copy');", onmouseup: "return false;", title: t('.clipboard')
+        button.copy-button= t('.copy')
+  .gem-dependencies
