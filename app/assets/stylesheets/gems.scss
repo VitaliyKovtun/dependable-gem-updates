@@ -33,35 +33,54 @@
 
   h4 { font-weight: normal; }
 
-  .gem-update-info {
-    width: 50%;
+  .gem-update-info, .gem-dependencies {
+    display: inline-block;
+    vertical-align: top;
     text-align: left;
   }
-  .instructions{
-    label {
-      color: gray;
-    }
-    input {
-      width: 80%;
-      min-width: 250px;
-      max-width: 100%;
-      display: inline-block;
-      vertical-align: bottom;
-      margin-right: -50px;
-      cursor: pointer;
-      &:hover {
+
+  .gem-update-info {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+    text-align: left;
+
+    .instructions{
+      label {
+        color: gray;
+      }
+      input {
+        width: 100%;
+        min-width: 250px;
+        max-width: 90%;
+        display: inline-block;
+        vertical-align: bottom;
+        margin-right: -50px;
         cursor: pointer;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .copy-button {
+        display: inline-block;
+        height: 38px;
+        width: 50px;
+        outline: none;
+        margin-bottom: 10px;
+        background-color: #261b7e;
+        color: white;
+        pointer-events: none;
       }
     }
-    .copy-button {
-      display: inline-block;
-      height: 38px;
-      width: 50px;
-      outline: none;
-      margin-bottom: 10px;
-      background-color: #261b7e;
-      color: white;
-      pointer-events: none;
+  }
+
+  .gem-dependencies {
+    width: 30%;
+    h3 {
+      text-align: center;
+    }
+    h5 {
+      color: gray;
     }
   }
 }

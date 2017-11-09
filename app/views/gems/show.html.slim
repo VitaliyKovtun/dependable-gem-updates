@@ -1,6 +1,6 @@
 .gem-section
   h3
-    strong= gem['name'].titleize
+    strong= gem['name']
   h4= gem['info']
   .gem-update-info
     br
@@ -20,3 +20,8 @@
           class: 'w-input', readonly: true, onfocus: "this.select(); execCommand('copy');", onmouseup: "return false;", title: t('.clipboard')
         button.copy-button= t('.copy')
   .gem-dependencies
+    h4= t('.dependencies')
+    - gem['dependencies'].each do |group, dependencies|
+      h5= t('.dependencies_title', dependency_group: group.upcase)
+      - dependencies.each do |dependency|
+        .dependency= dependency.values.join(' ')
