@@ -2,3 +2,6 @@
   h3= @gem['name'].titleize
   h4= @gem['info']
   br= t('.newest_version', version: @gem['version'])
+  br= t('.current_version', version: @gem['version'])
+  br= select_tag :version, options_for_select(@gem_versions, { include_blank: true })
+  br

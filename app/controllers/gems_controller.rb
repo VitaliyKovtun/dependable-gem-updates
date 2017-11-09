@@ -4,8 +4,16 @@ class GemsController < ApplicationController
   end
 
   def show
-    @gem ||= Gems.info params[:id]
+    @gem ||= Gems.info gem_name
+    versions ||= Gems.versions gem_name
+    @gem_versions = versions.map { |version| version['number'] }
   end
 
   helper_method :gems
+
+  private
+
+  def gem_name
+    @gem_name ||= params[:id]
+  end
 end
