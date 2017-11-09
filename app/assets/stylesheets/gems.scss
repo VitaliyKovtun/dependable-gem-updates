@@ -13,6 +13,8 @@
       border-bottom: 1px solid #261b7e;
       display: flex;
       justify-content: space-between;
+      transition: .3s;
+
       .gem-description {
         max-width: 80%;
         display: inline-block;
@@ -22,6 +24,10 @@
         max-width: 20%;
         display: inline-block;
         text-align: right;
+      }
+
+      &:hover {
+        background-color: rgba(38, 27, 126, 0.1);
       }
     }
   }

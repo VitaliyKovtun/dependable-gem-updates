@@ -2,7 +2,7 @@ class GemsController < ApplicationController
   private
 
   def gems
-    @gems ||= Gems.search params[:search] unless params[:search].blank?
+    @gems ||= params[:search].blank? ? Gems.just_updated : Gems.search(params[:search])
   end
   helper_method :gems
 
