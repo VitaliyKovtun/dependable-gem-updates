@@ -51,6 +51,9 @@
     vertical-align: top;
     text-align: left;
 
+    .input{
+      display: inline-block;
+    }
     .instructions{
       label {
         color: gray;
@@ -87,6 +90,12 @@
     }
     h5 {
       color: gray;
+    }
+    .actual {
+      color: green;
+    }
+    .legacy {
+      color: red;
     }
   }
 }

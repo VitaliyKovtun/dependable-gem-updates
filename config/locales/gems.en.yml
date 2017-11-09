@@ -11,9 +11,18 @@ en:
     show:
       newest_version: "NEWEST VERSION: %{version}, %{date}"
       current_version: "YOUR CURRENT VERSION:"
+      gemfile_title: "Gemfile"
+      install_title: "Install"
+      update_title: "Update"
       gemfile: "gem '%{name}', '~> %{version}'"
       install: "gem install %{name}"
+      update: "gem update %{name}"
       clipboard: "Copy to clipboard"
       copy: "Copy"
       dependencies: "DEPENDENCY CHANGES"
-      dependencies_title: "%{dependency_group} DEPENDENCIES"
+    dependencies:
+      no_changes: "No dependency changes between these versions"
+      latest_dependencies: "The latest dependencies are:"
+      dependencies_title: "%{dependency_type} DEPENDENCIES"
+    not_found:
+      message: "Rubygem '%{name}' could not be found."

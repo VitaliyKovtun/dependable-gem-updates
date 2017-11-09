@@ -6,22 +6,28 @@
     br
       strong= t('.newest_version', version: latest_version['number'], date: latest_version['created_at'])
     br
-      => t('.current_version')
-      = select_tag :version, options_for_select(gem_versions[1..-1].map { |v| format "%s, %s", v['number'], v['created_at'] }), class: 'version-select'
+      = simple_form_for '', url: dependency_changes_gem_path(gem['name']), defaults: {input_html: {class: 'w-input'}}, remote: true, method: :get do |f|
+        => t('.current_version')
+        = f.input :gem_version,
+          collection: gem_versions[1..-1].map { |v| {format("%s, %s", v['number'], v['created_at']) => v['number']}}.reduce(:merge),
+          label: false, include_blank: false
     br
       .instructions
-        = label_tag 'Gemfile'
+        = label_tag t('.gemfile_title')
         = text_field_tag :gemfile, t('.gemfile', name: gem['name'], version: gem['version']),
           class: 'w-input', readonly: true, onfocus: "this.select(); execCommand('copy');", onmouseup: "return false;", title: t('.clipboard')
         button.copy-button= t('.copy')
       .instructions
-        = label_tag 'Install'
-        = text_field_tag :install, t('.install', name: gem['name'], version: gem['version']),
+        = label_tag t('.install_title')
+        = text_field_tag :install, t('.install', name: gem['name']),
+          class: 'w-input', readonly: true, onfocus: "this.select(); execCommand('copy');", onmouseup: "return false;", title: t('.clipboard')
+        button.copy-button= t('.copy')
+      .instructions
+        = label_tag t('.update_title')
+        = text_field_tag :install, t('.update', name: gem['name']),
           class: 'w-input', readonly: true, onfocus: "this.select(); execCommand('copy');", onmouseup: "return false;", title: t('.clipboard')
         button.copy-button= t('.copy')
   .gem-dependencies
     h4= t('.dependencies')
-    - gem['dependencies'].each do |group, dependencies|
-      h5= t('.dependencies_title', dependency_group: group.upcase)
-      - dependencies.each do |dependency|
-        .dependency= dependency.values.join(' ')
+    #dependency-changes
+      = render 'dependencies', dependencies: dependencies

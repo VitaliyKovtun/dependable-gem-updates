@@ -1,0 +1,11 @@
+- if dependencies.blank?
+  = t('.no_changes')
+  br= t('.latest_dependencies')
+  - gem['dependencies'].reject { |_, v| v.blank? }.each do |type, dependency_group|
+    h5= t('.dependencies_title', dependency_type: type.upcase)
+    - dependency_group.each do |dependency|
+      .dependency= dependency.values.join(' ')
+- else
+  - dependencies.each do |name, versions|
+    .actual= format("%s %s", name, versions[:actual])
+    .legacy= format("%s %s", name, versions[:legacy])

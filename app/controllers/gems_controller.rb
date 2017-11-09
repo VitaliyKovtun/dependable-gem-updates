@@ -1,5 +1,11 @@
 class GemsController < ApplicationController
+  before_action :check_gem_existance, only: %i[show dependency_changes]
+  before_action :resolve_dependencies, only: %i[show dependency_changes]
+
   private
+
+  attr_reader :dependencies
+  helper_method :dependencies
 
   def gems
     @gems ||= params[:search].blank? ? Gems.just_updated : Gems.search(params[:search])
@@ -26,4 +32,21 @@ class GemsController < ApplicationController
     end
   end
   helper_method :gem_versions
+
+  def resolve_dependencies
+    return if gem_versions.size < 2
+    all_dependencies ||= Gems.dependencies(gem_name)
+    actual = all_dependencies.detect { |d| d[:number] == gem['version'] }[:dependencies].to_h
+    legacy = all_dependencies.detect { |d| d[:number] == (params[:gem_version] || gem_versions[1]['number']) }[:dependencies].to_h
+    @dependencies = {}
+    (actual.keys + legacy.keys).uniq.each do |name|
+      @dependencies[name] = {actual: actual[name], legacy: legacy[name]} unless actual[name] == legacy[name]
+    end
+  end
+
+  def check_gem_existance
+    gem
+  rescue => e
+    return render('not_found')
+  end
 end
