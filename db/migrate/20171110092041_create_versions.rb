@@ -5,7 +5,7 @@ class CreateVersions < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :authors
       t.text :description
-      t.bigint :number
+      t.string :number
       t.datetime :built_at
       t.datetime :updated_at
       t.text :summary
