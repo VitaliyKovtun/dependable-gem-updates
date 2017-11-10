@@ -2,7 +2,7 @@ class CreateVersions < ActiveRecord::Migration[5.1]
   def change
     create_table :versions do |t|
       enable_extension 'hstore'
-      t.string :name, null: false, unique: true
+      t.string :name, null: false
       t.text :authors
       t.text :description
       t.integer :number

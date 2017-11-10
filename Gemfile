@@ -43,7 +43,17 @@ gem 'normalize-scss'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
   gem 'pry-byebug'
+  gem 'rspec-activemodel-mocks'
+  gem 'rspec-collection_matchers'
+  gem 'rspec-rails'
+  gem 'shoulda', require: false
+  gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
