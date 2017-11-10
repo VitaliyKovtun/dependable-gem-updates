@@ -40,7 +40,7 @@ class GemsController < ApplicationController
     legacy = all_dependencies.detect { |d| d[:number] == (params[:gem_version] || gem_versions[1]['number']) }[:dependencies].to_h
     @dependencies = {}
     (actual.keys + legacy.keys).uniq.each do |name|
-      @dependencies[name] = {actual: actual[name], legacy: legacy[name]} unless actual[name] == legacy[name]
+      @dependencies[name] = { actual: actual[name], legacy: legacy[name] } unless actual[name] == legacy[name]
     end
   end
 

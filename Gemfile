@@ -31,12 +31,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'gems'
+gem 'jquery-rails'
+gem 'normalize-scss'
 gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'twitter'
-gem 'jquery-rails'
-gem 'normalize-scss'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

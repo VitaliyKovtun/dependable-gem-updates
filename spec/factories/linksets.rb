@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :linkset do
-    home { Faker::Lorem.word }
-    wiki { Faker::Lorem.word }
-    docs { Faker::Lorem.sentence }
-    mail { Faker::Lorem.word }
-    code { Faker::Lorem.word }
-    bugs { Faker::Lorem.sentence }
+    home { FFaker::Lorem.word }
+    wiki { FFaker::Lorem.word }
+    docs { FFaker::Lorem.sentence }
+    mail { FFaker::Lorem.word }
+    code { FFaker::Lorem.word }
+    bugs { FFaker::Lorem.sentence }
     created_at { DateTime.now }
     updated_at { DateTime.now }
     association :rubygem
