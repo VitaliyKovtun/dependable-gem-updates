@@ -15,7 +15,6 @@
 /log/*
 /tmp/*
 /bin/*
-/config/database.yml
 /config/secrets.yml
 
 /node_modules

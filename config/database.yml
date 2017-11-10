@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: dependable_gemupdates_development
+  host: localhost
+
+test:
+  <<: *default
+  database: dependable_gemupdates_test
+
+staging:
+  <<: *default
+  database: dependable_gemupdates_staging
+
+production:
+  <<: *default
+  database: dependable_gemupdates_production
