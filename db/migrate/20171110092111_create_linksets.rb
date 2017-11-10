@@ -1,4 +1,4 @@
-class CreateGemLinksets < ActiveRecord::Migration[5.1]
+class CreateLinksets < ActiveRecord::Migration[5.1]
   def change
     create_table :linksets do |t|
       t.string :home
