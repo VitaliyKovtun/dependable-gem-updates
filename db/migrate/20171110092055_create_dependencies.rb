@@ -6,8 +6,8 @@ class CreateDependencies < ActiveRecord::Migration[5.1]
       t.datetime :updated_at
       t.string :scope
       t.string :unresolved_name
-      t.references :rubygem, null: false, index: true
-      t.references :version, null: false, index: true
+      t.references :rubygem, index: true
+      t.references :version, index: true
     end
   end
 end

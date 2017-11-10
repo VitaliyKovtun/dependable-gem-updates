@@ -6,10 +6,4 @@ RSpec.describe Version, type: :model do
     it { is_expected.to have_many(:dependencies) }
     it { is_expected.to have_many(:gem_downloads) }
   end
-
-  describe 'validations' do
-    it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:metadata) }
-    it { is_expected.to validate_presence_of(:rubygem_id) }
-  end
 end

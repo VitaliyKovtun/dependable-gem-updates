@@ -1,10 +1,10 @@
 class CreateRubygems < ActiveRecord::Migration[5.1]
   def change
     create_table :rubygems do |t|
-      t.string :name, null: false
+      t.string :name
       t.datetime :created_at
       t.datetime :updated_at
-      t.string :slug, null: false
+      t.string :slug
     end
   end
 end

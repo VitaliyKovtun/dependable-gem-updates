@@ -9,7 +9,7 @@ class CreateLinksets < ActiveRecord::Migration[5.1]
       t.string :bugs
       t.datetime :created_at
       t.datetime :updated_at
-      t.references :rubygem, null: false, index: true
+      t.references :rubygem, index: true
     end
   end
 end
