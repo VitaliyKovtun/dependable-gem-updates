@@ -2,7 +2,6 @@ class CreateVersions < ActiveRecord::Migration[5.1]
   def change
     create_table :versions do |t|
       enable_extension 'hstore'
-      t.string :name
       t.text :authors
       t.text :description
       t.string :number
