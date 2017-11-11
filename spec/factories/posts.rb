@@ -4,8 +4,4 @@ FactoryBot.define do
     from_version { FFaker::PhoneNumber.phone_number }
     to_version { FFaker::PhoneNumber.phone_number }
   end
-
-  after(:build) do |post|
-    post.class.skip_callback(:create, :after, :tweeting)
-  end
 end

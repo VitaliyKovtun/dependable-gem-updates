@@ -1,16 +1,22 @@
 class TwitterClient
-  def initialize(post)
-    @post = post
+  def self.tweet(*args)
+    new(*args).tweet
+  end
+
+  def initialize(name:, version:, gem_url:)
+    @name = name
+    @version = version
+    @gem_url = gem_url
   end
 
   def tweet
-    client.update(twitter_data)
+    client.update(twitter_message)
   end
 
   private
 
-  def twitter_data
-    Rails::Html::FullSanitizer.new.sanitize("#{post.gem_name}\n#{post.from_version}\n#{post.to_version}")
+  def twitter_message
+    Rails::Html::FullSanitizer.new.sanitize("New version of #{name}: release #{version}. Check it out at #{gem_url}")
   end
 
   def client
@@ -22,5 +28,5 @@ class TwitterClient
     end
   end
 
-  attr_reader :post
+  attr_reader :name, :version, :gem_url
 end
