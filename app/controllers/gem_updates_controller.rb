@@ -7,6 +7,6 @@ class GemUpdatesController < ApplicationController
   private
 
   def gem_update_params
-    params.require(:gem_update).permit(*%i[name version changelog_uri])
+    params.require(:gem_update).permit(*%i[name version])
   end
 end
