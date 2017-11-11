@@ -12,7 +12,7 @@ RSpec.describe Rubygem, type: :model do
     let(:rubygem_one) { create(:rubygem) }
     let(:rubygem_two) { create(:rubygem) }
 
-    subject { Rubygem.search(rubygem_one.title) }
+    subject { Rubygem.search(rubygem_one.name) }
 
     it { is_expected.to include(rubygem_one) }
     it { is_expected.to_not include(rubygem_two) }
