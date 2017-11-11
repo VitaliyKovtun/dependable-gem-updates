@@ -1,16 +1,33 @@
 .gem-updates {
   padding-top: 1%;
   text-align: center;
+  .search-form {
+    .input {
+      display: inline-block;
+      width: 50%;
+    }
+    .search-button {
+      display: inline-block;
+      border: 1px solid #3898EC;
+      vertical-align: top;
+      padding: 8px 15px;
+      outline: none;
+    }
+  }
+  .navigation {
+    height: 2em;
+    padding: 0 5% 2% 5%;
+  }
   .gems {
     padding: 0;
     list-style: none;
     border: none;
-    border-top: 1px solid #261b7e;
+    border-bottom: 1px solid #261b7e;
 
     .gem {
       padding: 5px 5%;
       border: none;
-      border-bottom: 1px solid #261b7e;
+      border-top: 1px solid #261b7e;
       display: flex;
       justify-content: space-between;
       transition: .3s;

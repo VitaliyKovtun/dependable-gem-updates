@@ -1,8 +1,12 @@
 .gem-updates
   h3= t('.title')
   .w-form
-    = simple_form_for '', url: root_path, method: :get, html: {class: 'form w-clearfix'} do |f|
+    = simple_form_for '', url: root_path, method: :get, html: {class: 'form w-clearfix search-form'} do |f|
       = f.input :search, label: false, placeholder: 'search', input_html: {class: 'w-input', value: params[:search]}, required: false
-      = f.submit t('.search')
+      = f.submit t('.search'), class: 'w-button search-button'
+  - unless params[:search].blank?
+    .navigation
+      .pull-left= link_to_unless(params[:page].to_i <= 1, '<< Previous', root_path(search: params[:search], page: (params[:page] || 1).to_i - 1)) {}
+      .pull-right= link_to_unless(gems.size < 30, 'Next >>', root_path(search: params[:search], page: (params[:page] || 1).to_i + 1)) {}
   ul.gems
     = render partial: 'gem', collection: gems
